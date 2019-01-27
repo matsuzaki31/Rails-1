@@ -1,0 +1,34 @@
+<h1>Books</h1>
+<table>
+    <tr>
+    <th>Title</th>
+    <th>Body</th>
+    </tr>
+ <% @posts.each do |post| %>
+    <tr>
+        <td><%=link_to post.title, post_path(post.id), class: "show_#{:id}" %></td>
+        <td><%=link_to post.body, post_path(post.id), class: "show_#{:id}" %></td><br>
+    </tr>
+</table>
+<% end %>
+
+<h1>New book</h1>
+
+<%= form_for(@post) do |f| %>
+
+    <h4>Title</h4>
+    <%= f.text_field :title ,class: "book_title" %>
+
+    <h4>Body</h4>
+    <%= f.text_area :body ,class: "book_body"%>
+
+    <%= f.submit 'Create Book' %>
+
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+
+<% end %>
+

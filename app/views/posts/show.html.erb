@@ -1,0 +1,13 @@
+<p>Title:</p>
+<p><%= @post.title %></p>
+<p>Body:</p>
+<p><%= @post.body %></p>
+</p>
+<%= link_to "編集", edit_post_path(@post.id) , class: "edit_#{:id}" %>
+<%= link_to "削除", destroy_post_path(@post.id) , class: "destroy_#{:id}" , method: :delete , "data-confirm" => "本当に削除しますか？" %>
+<%= link_to "戻る", posts_path(@post.id) , class: "back" %>
+<% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+<% end %>
