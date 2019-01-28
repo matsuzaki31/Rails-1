@@ -8,6 +8,8 @@
     <tr>
         <td><%=link_to post.title, post_path(post.id), class: "show_#{post.id}" %></td>
         <td><%=link_to post.body, post_path(post.id), class: "show_#{post.id}" %></td><br>
+        <td><%= link_to "編集", edit_post_path(post.id) , class: "edit_#{post.id}" %></td>
+        <td><%= link_to "削除", destroy_post_path(post.id) , class: "destroy_#{post.id}" , method: :delete , "data-confirm" => "本当に削除しますか？" %></td>
     </tr>
 <% end %>
 </table>
